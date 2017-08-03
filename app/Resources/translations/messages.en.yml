@@ -1,0 +1,9 @@
+homepage:
+    index:
+        nav:
+            logo: garage
+            home: home
+            signin: sign in
+            signup: sign up
+            signout: sign out
+            contact: contact

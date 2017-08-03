@@ -1,0 +1,10 @@
+homepage:
+    index:
+        nav:
+            logo: garage
+            home: accueil
+            signin: connexion
+            signup: s'inscrire
+            signout: déconnexion
+            contact: contact
+        

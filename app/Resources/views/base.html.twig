@@ -2,12 +2,20 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}Garage {% endblock %}</title>
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
+        
     </head>
-    <body>
+    <body class="container">
+        
+        {% include 'inc/nav.html.twig' %}
+       
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
+        
+        <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
+        <script src="{{ asset('js/bootstrap.min.js') }}" ></script>
     </body>
 </html>

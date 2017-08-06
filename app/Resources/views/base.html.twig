@@ -5,17 +5,19 @@
         <title>{% block title %}Garage {% endblock %}</title>
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        
         <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
+       
+        <script src="{{ asset('js/jquery.min.js') }}"></script>
+        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
         
     </head>
     <body class="container">
         
-        {% include 'inc/nav.html.twig' %}
-       
+        {{ generate_nav() | raw }}
+        
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
         
-        <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
-        <script src="{{ asset('js/bootstrap.min.js') }}" ></script>
     </body>
 </html>

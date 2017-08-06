@@ -1,0 +1,6 @@
+AppBundle\Entity\Voiture:
+    voiture{1..10}:
+        name: model<current()>
+        image: <image('./web/img/voiture', 150, 150, 'transport', false)>
+        marque: '@marque*'
+        

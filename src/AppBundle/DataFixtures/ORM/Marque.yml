@@ -1,0 +1,4 @@
+AppBundle\Entity\Marque:
+    marque{1..5}:
+        nom (unique): <randomElement(['peugeot', 'mercedès', 'bmw', 'fiat', 'renault'])>
+        

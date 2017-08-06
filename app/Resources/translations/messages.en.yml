@@ -7,6 +7,8 @@ homepage:
             signup: sign up
             signout: sign out
             contact: contact
+            by_brand: by brand
+            by_category: by category
             premier_paragraphe: >
                 OpenClassrooms recueille des informations (login, e-mail) lors de
                 votre enregistrement en tant que membre du site. Lors de votre

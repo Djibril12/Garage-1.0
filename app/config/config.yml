@@ -69,4 +69,5 @@ swiftmailer:
     spool: { type: memory }
 
 knp_doctrine_behaviors:
+    translatable: true
     sluggable: true

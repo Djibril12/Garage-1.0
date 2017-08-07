@@ -33,6 +33,15 @@ class CategoriePieceDetache
     private $estActive;
 
 
+    
+    /**
+     * One CategoriePieceDetache has Many PieceDetaches.
+     * @ORM\OneToMany(targetEntity="PieceDetache", mappedBy="categoriePieceDetache")
+     */
+    private $pieceDetaches;
+    
+    
+    
     /**
      * Get id
      *
@@ -65,5 +74,46 @@ class CategoriePieceDetache
     public function getEstActive()
     {
         return $this->estActive;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->pieceDetaches = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add pieceDetach
+     *
+     * @param \AppBundle\Entity\PieceDetache $pieceDetach
+     *
+     * @return CategoriePieceDetache
+     */
+    public function addPieceDetach(\AppBundle\Entity\PieceDetache $pieceDetach)
+    {
+        $this->pieceDetaches[] = $pieceDetach;
+
+        return $this;
+    }
+
+    /**
+     * Remove pieceDetach
+     *
+     * @param \AppBundle\Entity\PieceDetache $pieceDetach
+     */
+    public function removePieceDetach(\AppBundle\Entity\PieceDetache $pieceDetach)
+    {
+        $this->pieceDetaches->removeElement($pieceDetach);
+    }
+
+    /**
+     * Get pieceDetaches
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPieceDetaches()
+    {
+        return $this->pieceDetaches;
     }
 }

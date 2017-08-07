@@ -37,7 +37,24 @@ class PieceDetache {
      * @ORM\Column(name="image", type="string", length=150, unique=true)
      */
     private $image;
-
+    
+    
+    
+    /**
+     * Many PieceDetaches have Many Voitures.
+     * @ORM\ManyToMany(targetEntity="Voiture", mappedBy="pieceDetaches")
+     */
+    private $voitures;
+    
+    
+    /**
+     * Many PieceDetaches have One CategoriePieceDetache.
+     * @ORM\ManyToOne(targetEntity="CategoriePieceDetache", inversedBy="pieceDetaches")
+     * @ORM\JoinColumn(name="categoriePieceDetache_id", referencedColumnName="id")
+     */
+    private $categoriePieceDetache;
+    
+    
     /**
      * Get id
      *
@@ -91,4 +108,69 @@ class PieceDetache {
         return $this->image;
     }
 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->voitures = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add voiture
+     *
+     * @param \AppBundle\Entity\Voiture $voiture
+     *
+     * @return PieceDetache
+     */
+    public function addVoiture(\AppBundle\Entity\Voiture $voiture)
+    {
+        $this->voitures[] = $voiture;
+
+        return $this;
+    }
+
+    /**
+     * Remove voiture
+     *
+     * @param \AppBundle\Entity\Voiture $voiture
+     */
+    public function removeVoiture(\AppBundle\Entity\Voiture $voiture)
+    {
+        $this->voitures->removeElement($voiture);
+    }
+
+    /**
+     * Get voitures
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getVoitures()
+    {
+        return $this->voitures;
+    }
+
+    /**
+     * Set categoriePieceDetache
+     *
+     * @param \AppBundle\Entity\CategoriePieceDetache $categoriePieceDetache
+     *
+     * @return PieceDetache
+     */
+    public function setCategoriePieceDetache(\AppBundle\Entity\CategoriePieceDetache $categoriePieceDetache = null)
+    {
+        $this->categoriePieceDetache = $categoriePieceDetache;
+
+        return $this;
+    }
+
+    /**
+     * Get categoriePieceDetache
+     *
+     * @return \AppBundle\Entity\CategoriePieceDetache
+     */
+    public function getCategoriePieceDetache()
+    {
+        return $this->categoriePieceDetache;
+    }
 }

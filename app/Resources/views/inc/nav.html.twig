@@ -22,8 +22,8 @@
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{ 'homepage.index.nav.by_category' | trans | capitalize }}<span class="caret"></span></a>
         <ul class="dropdown-menu">
-            {% for marque in marques %}
-                <li><a href="#">{{ marque.nom }}</a></li>
+            {% for categorie in categories %}
+                <li><a href="#">{{ categorie.translations[app.request.locale].nom | capitalize }}</a></li>
             {% endfor %}
         </ul>
       </li>

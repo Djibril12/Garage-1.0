@@ -4,6 +4,7 @@ namespace AppBundle\Twig;
 
 use Doctrine\Common\Persistence\ManagerRegistry;
 use AppBundle\Entity\Marque;
+use AppBundle\Entity\CategoriePieceDetache;
 
 class AppExtension extends \Twig_Extension {
 
@@ -24,9 +25,14 @@ class AppExtension extends \Twig_Extension {
 
     public function generateNav() {
         $marques = $this->doctrine->getRepository(Marque::class)->findAll();
-
+        $categories = $this->doctrine->getRepository(CategoriePieceDetache::class)->findAll();
+        
+        dump($categories);
+        //exit();
+        
         return $this->twig->render('inc/nav.html.twig', [
-                    'marques' => $marques
+                    'marques' => $marques,
+                    'categories' => $categories
         ]);
     }
 

@@ -1,0 +1,10 @@
+AppBundle\Entity\PieceDetacheTranslation:
+    piece_detache_translation_fr{1..20}:
+        nom: piece_detache<current()>
+        locale: fr
+        translatable: '@piece_detache<current()>'
+    
+    piece_detache_translation_en{1..20}:
+        nom: spare_part<current()>
+        locale: en
+        translatable: '@piece_detache<current()>'

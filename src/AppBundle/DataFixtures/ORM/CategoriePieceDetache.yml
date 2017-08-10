@@ -1,0 +1,3 @@
+AppBundle\Entity\CategoriePieceDetache:
+    main_categorie_piece_detache{1..10}:
+        estActive: 0

@@ -1,0 +1,9 @@
+AppBundle\Entity\CategoriePieceDetacheTranslation:
+    categorie_piece_detache_fr{1..10}:
+        nom: catégorie<current()>
+        locale: fr
+        translatable: '@main_categorie_piece_detache<current()>'    
+    categorie_piece_detache_en{1..10}:
+        nom: category<current()>
+        locale: en
+        translatable: '@main_categorie_piece_detache<current()>'

@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Knp\DoctrineBehaviors\Model\Translatable\Translatable;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * PieceDetache
@@ -46,15 +47,25 @@ class PieceDetache {
      */
     private $voitures;
     
-    
     /**
-     * Many PieceDetaches have One CategoriePieceDetache.
-     * @ORM\ManyToOne(targetEntity="CategoriePieceDetache", inversedBy="pieceDetaches")
+     * Constructor
+     */
+    
+    
+     /**
+     * 
+     * @ORM\ManyToOne(targetEntity="CategoriePieceDetache")
      * @ORM\JoinColumn(name="categoriePieceDetache_id", referencedColumnName="id")
      */
     private $categoriePieceDetache;
     
     
+    
+    public function __construct()
+    {
+        $this->voitures = new ArrayCollection();
+    }
+  
     /**
      * Get id
      *
@@ -108,13 +119,7 @@ class PieceDetache {
         return $this->image;
     }
 
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->voitures = new \Doctrine\Common\Collections\ArrayCollection();
-    }
+   
 
     /**
      * Add voiture
@@ -149,6 +154,9 @@ class PieceDetache {
     {
         return $this->voitures;
     }
+
+
+    
 
     /**
      * Set categoriePieceDetache

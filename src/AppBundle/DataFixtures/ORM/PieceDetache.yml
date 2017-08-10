@@ -1,0 +1,6 @@
+AppBundle\Entity\PieceDetache:
+    piece_detache{1..20}:
+        prix: <randomFloat(2, 30, 9999.99)>
+        image: <image('./web/img/piece-detache', 150, 150, 'transport', false)>
+        voitures: <numberBetween(1 , 5)>x @voiture*
+        categoriePieceDetache: '@main_categorie_piece_detache*'

@@ -10,4 +10,18 @@ namespace AppBundle\Repository;
  */
 class VoitureRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getVoitureParSlug($slug)
+    {
+        $results = $this
+                ->createQueryBuilder('voiture')
+                ->join('voiture.marque', 'marque')
+                ->where('marque.slug = :slug')
+                ->setParameter('slug', $slug)
+                ->getQuery()
+                ->getResult();
+        
+        return $results;
+    }
+    
+    
 }

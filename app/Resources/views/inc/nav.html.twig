@@ -15,7 +15,7 @@
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{ 'homepage.index.nav.by_brand' | trans | capitalize }}<span class="caret"></span></a>
         <ul class="dropdown-menu">
             {% for marque in marques %}
-                <li><a href="#">{{ marque.nom }}</a></li>
+                <li><a href="{{ url('app.voiture.index', {'slug': marque.nom }) }}">{{ marque.nom }}</a></li>
             {% endfor %}
         </ul>
       </li>

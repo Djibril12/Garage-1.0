@@ -27,7 +27,7 @@ class AppExtension extends \Twig_Extension {
         $marques = $this->doctrine->getRepository(Marque::class)->findAll();
         $categories = $this->doctrine->getRepository(CategoriePieceDetache::class)->findAll();
         
-        dump($categories);
+        //dump($categories);
         //exit();
         
         return $this->twig->render('inc/nav.html.twig', [

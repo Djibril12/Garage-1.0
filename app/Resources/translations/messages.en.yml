@@ -1,3 +1,10 @@
+voiture:
+    index:
+        page_title: cars by brand
+        button_detail: more details
+
+
+
 homepage:
     index:
         nav:

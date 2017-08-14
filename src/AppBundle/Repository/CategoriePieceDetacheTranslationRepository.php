@@ -10,4 +10,9 @@ namespace AppBundle\Repository;
  */
 class CategoriePieceDetacheTranslationRepository extends \Doctrine\ORM\EntityRepository
 {
+    
+     
+    
+    
+    
 }

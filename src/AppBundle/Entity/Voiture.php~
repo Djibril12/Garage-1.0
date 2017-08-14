@@ -54,7 +54,7 @@ class Voiture {
     /**
      * Many Voitures have Many PieceDetaches.
      * @ORM\ManyToMany(targetEntity="PieceDetache", inversedBy="voitures")
-     * @ORM\JoinTable(name="voitures_pieceDetaches")
+     * @ORM\JoinTable(name="voitures_piece_detaches")
      */
     private $pieceDetaches;
     

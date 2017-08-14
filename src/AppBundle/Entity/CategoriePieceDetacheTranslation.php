@@ -10,7 +10,7 @@ use Knp\DoctrineBehaviors\Model\Translatable\Translation;
  * CategoriePieceDetache
  *
  * @ORM\Table(name="categorie_piece_detache_translation")
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\CategoriePieceDetacheRepositoryTranslation")
  */
 class CategoriePieceDetacheTranslation {
 

@@ -1,3 +1,8 @@
+voiture:
+    index:
+        page_title: voitures de marque
+        button_detail: plus de détails
+
 homepage:
     index:
         nav:

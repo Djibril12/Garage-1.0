@@ -2,7 +2,7 @@
 
 {% block body %}
     <div class="row">
-        <h1>Liste voiture par marque</h1>
+        <h1>{{ 'voiture.index.page_title' | trans | capitalize }}</h1>
         <div class="row text-center">
             {% for voiture in voitures %}
             <div class="col-sm-4">
@@ -10,7 +10,7 @@
                   <img src="{{ asset('img/voiture/' ~ voiture.image ~ '') }}" alt="Paris" width="300" height="200">
                   <p><strong>{{ voiture.name }}</strong></p>
                   
-                  <button class="btn btn-info" data-toggle="modal" data-target="#myModal">Plus de détails</button>
+                  <button class="btn btn-info" data-toggle="modal" data-target="#myModal">{{ 'voiture.index.button_detail' | trans | capitalize }}</button>
                 </div>
             </div>
             {% endfor %}

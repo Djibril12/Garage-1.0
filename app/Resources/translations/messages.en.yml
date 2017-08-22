@@ -2,6 +2,10 @@ voiture:
     index:
         page_title: cars by brand
         button_detail: more details
+        modal:
+            header: details information of the car
+            button_close: close
+    nombre: "{0} no car for this brand | {1} car with brand | [2,+Inf] cars with brand "
 
 
 

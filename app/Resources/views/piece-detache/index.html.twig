@@ -7,17 +7,14 @@
         <div class="row text-center">
             {% for pieceDetachee in piecesDetachees %}
             <div class="col-sm-4">
-
-                  <img src="{{ asset('img/piece-detache/' ~ pieceDetachee.image ~ '') }}" alt="Paris" width="150" height="100">
-                  <p><strong>{{ pieceDetachee.prix }}</strong></p>
-                  
-                  <button class="btn btn-primary" >{{ 'ajouter' | capitalize }}</button>
+                <img src="{{ asset('img/piece-detache/' ~ pieceDetachee.image ~ '') }}" alt="Paris" width="150" height="100">
+                <p><strong>{{ pieceDetachee.prix }}</strong></p>
+                <button class="btn btn-primary" >{{ 'ajouter' | capitalize }}</button>
                
             </div>
             {% endfor %}
         </div>
     </div>
-    
                 
 {% endblock %}
 

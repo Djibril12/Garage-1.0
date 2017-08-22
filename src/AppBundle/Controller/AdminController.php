@@ -6,14 +6,19 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-class HomepageController extends Controller
+/**
+ * @Route("/admin")
+ */
+class AdminController extends Controller
 {
     /**
-     * @Route("/", name="app.homepage.index")
+     * @Route("/", name="app.admin.index")
      */
     public function indexAction(Request $request)
     {
-
-        return $this->render('homepage/index.html.twig');
+      
+        
+        
+        return $this->render('admin/index.html.twig');
     }
 }

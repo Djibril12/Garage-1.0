@@ -14,8 +14,12 @@ class VoitureController extends Controller
      */
     public function indexAction(Request $request, $slug)
     {
+        // service de traduction
+        //$translator = $this->get('translator');
+
+        $voitures = $this->getDoctrine()->getRepository(\AppBundle\Entity\Voiture::class)->getVoitureParSlug($slug);
         
-        $voitures = $this->getDoctrine()->getRepository(Voiture::class)->getVoitureParSlug($slug);
+        //$translator->transchoice('voiture.nombre', sizeof($voitures));
         
         return $this->render('voiture/index.html.twig', [
             'voitures' => $voitures,

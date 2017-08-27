@@ -3,4 +3,16 @@
 {% block body %}
     <h3> Mot de passe oublié </h3>
 
+    <div class="well col-sm-6">
+        <form action="{{ path('app.compte.oubli.motpasse') }}" method="POST">
+            <div class="form-group">
+                <label for="email" >Email:</label>
+                <input type="text" id="email" class="form-control" name="email" value="{{ last_username }}" />
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-default">Envoyer</button>
+            </div>
+        </form>
+    </div>
+
 {% endblock %}

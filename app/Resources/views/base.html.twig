@@ -15,7 +15,8 @@
     <body class="container">
         
         {{ generate_nav() | raw }}
-        
+        {% include 'inc/flash-message.html.twig' %}
+
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
         {% include 'inc/modal-detail-voiture.html.twig' %}

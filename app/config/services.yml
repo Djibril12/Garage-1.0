@@ -29,6 +29,12 @@ services:
         public: true
         tags: ['controller.service_arguments']
 
+
+    AppBundle\Listener\UserListener:
+       # arguments: [ '@security.password_encoder', '@doctrine' ]
+        tags:
+            - { name: doctrine.orm.entity_listener }
+
     # add more services, or override services that need manual wiring
     # AppBundle\Service\ExampleService:
     #     arguments:

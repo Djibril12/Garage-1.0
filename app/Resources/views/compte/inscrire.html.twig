@@ -2,5 +2,99 @@
 
 {% block body %}
     <h3> Créer un compte </h3>
+    <div class="well col-sm-8">
+        {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+            {% if form.username is defined %}
+                {# Génération manuelle et éclatée : #}
+                <div class="form-group">
+                    {# Génération du label. #}
+                    {{ form_label(form.username, "Nom utilisateur", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+
+                    {# Affichage des erreurs pour ce champ précis. #}
+                    {{ form_errors(form.username) }}
+
+                    <div class="col-sm-10">
+                        {# Génération de l'input. #}
+                        {{ form_widget(form.username, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                </div>
+            {% endif %}
+            {% if form.email is defined %}
+                {# Idem pour un autre champ. #}
+                <div class="form-group">
+                    {{ form_label(form.email, "Email", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+                    {{ form_errors(form.email) }}
+                    <div class="col-sm-10">
+                        {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                </div>
+             {% endif %}
+            {% if form.password is defined %}
+                {# Idem pour un autre champ. #}
+                <div class="form-group">
+                    {{ form_label(form.password, "Mot de passe", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+                    {{ form_errors(form.password) }}
+                    <div class="col-sm-10">
+                        {{ form_widget(form.password, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                </div>
+            {% endif %}
+        {% if form.address is defined %}
+            {# Idem pour un autre champ. #}
+            <div class="form-group">
+                {{ form_label(form.address, "Adresse", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+                {{ form_errors(form.address) }}
+                <div class="col-sm-10">
+                    {{ form_widget(form.address, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+        {% endif %}
+        {% if form.phone is defined %}
+            {# Idem pour un autre champ. #}
+            <div class="form-group">
+                {{ form_label(form.phone, "Téléphone", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+                {{ form_errors(form.phone) }}
+                <div class="col-sm-10">
+                    {{ form_widget(form.phone, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+        {% endif %}
+        {% if form.city is defined %}
+            {# Idem pour un autre champ. #}
+            <div class="form-group">
+                {{ form_label(form.city, "Ville", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+                {{ form_errors(form.city) }}
+                <div class="col-sm-10">
+                    {{ form_widget(form.city, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+        {% endif %}
+        {% if form.country is defined %}
+            {# Idem pour un autre champ. #}
+            <div class="form-group">
+                {{ form_label(form.country, "Pays", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+                {{ form_errors(form.country) }}
+                <div class="col-sm-10">
+                    {{ form_widget(form.country, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+        {% endif %}
+        {% if form.zipcode is defined %}
+            {# Idem pour un autre champ. #}
+            <div class="form-group">
+                {{ form_label(form.zipcode, "Code postal", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+                {{ form_errors(form.zipcode) }}
+                <div class="col-sm-10">
+                    {{ form_widget(form.zipcode, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+        {% endif %}
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-default col-sm-offset-1 ">Créer</button>
+        </div>
+        {# Fermeture de la balise <form> du formulaire HTML #}
+        {{ form_end(form) }}
+    </div>
 
 {% endblock %}

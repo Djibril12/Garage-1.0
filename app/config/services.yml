@@ -35,7 +35,13 @@ services:
         tags:
             - { name: doctrine.orm.entity_listener }
 
+
+
     # add more services, or override services that need manual wiring
     # AppBundle\Service\ExampleService:
     #     arguments:
-    #         $someArgument: 'some_value'
+    #         $someArgument: 'some_value' # le nom du pramètre dans le constructeur
+
+    AppBundle\Service\:
+        resource: '../../src/AppBundle/Service'
+        public: true

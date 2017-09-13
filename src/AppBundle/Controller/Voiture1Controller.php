@@ -7,7 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Entity\Voiture;
 
-class VoitureController extends Controller
+class Voiture1Controller extends Controller
 {
     /**
      * @Route("/voiture/{slug}", name="app.voiture.index")

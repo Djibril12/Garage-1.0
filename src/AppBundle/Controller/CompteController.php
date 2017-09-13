@@ -3,9 +3,12 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\User;
+use AppBundle\Event\CompteEvents;
+use AppBundle\Event\ComptePasswordForgotEvent;
 use AppBundle\Form\UserType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Component\HttpFoundation\Request;
 
 
@@ -55,8 +58,38 @@ class CompteController extends Controller
      */
     public function oubliMotPasseAction(Request $request)
     {
-      
 
+
+        if($request->isMethod('POST'))
+        {
+            // récupération du mail
+            $email = $request->request->get('email');
+
+            // instanciation de l'évènement mot de passe oublier
+            $pwdForgotEvent = new ComptePasswordForgotEvent();
+
+            // affectation du mail
+            $pwdForgotEvent->setEmail($email);
+
+
+
+            // recuperation de evenement
+            //$eventDispatcherService = new EventDispatcher();
+
+            $eventDispatcherService = $this->get('event_dispatcher');
+
+            // déclencher l'évenement
+            //$eventDispatcherService->dispatch(CompteEvents::PASSWORD_FORGOT, $pwdForgotEvent);
+             $eventDispatcherService->dispatch(CompteEvents::PASSWORD_FORGOT, $pwdForgotEvent);
+            dump($pwdForgotEvent, $eventDispatcherService);
+            //exit();
+            // message flash
+            $message = 'mail envoyé';
+            $this->addFlash('notice', $message);
+
+            // redirection
+            return $this->redirectToRoute('app.security.login');
+        }
         
         return $this->render('compte/oubli-mot-passe.html.twig');
     }

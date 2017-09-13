@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+    {{ dump(users)  }}
+
+    <h3><span>Espace d'administration</span></h3>
+    <table class="table table-bordered table-hover">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Statut</th>
+            <th>Adresse</th>
+            <th>Telephone</th>
+            <th>Ville</th>
+            <th>Code Postal</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td></td>
+                <td>{{  user.username }}</td>
+                <td>{{ user.email }}</td>
+                <td> {{ user.isActive ? "Oui" : "Non" }}</td>
+                <td>{{ user.address }}</td>
+                <td>{{ user.phone }}</td>
+                <td>{{ user.city }}</td>
+                <td>{{ user.zipcode }}</td>
+                <td>
+                    <a href="" class="btn btn-sm btn-warning"><span class="glyphicon glyphicon-edit" aria-hidden="true"> Edit</span></a>
+                    <a href="{{ path('app.admin.user.delete', { id: user.id }) }}" class="btn btn-sm btn-danger btn-supp"><span class="glyphicon glyphicon-trash" aria-hidden="true"> Delete</span></a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+    {% block javascript %}
+        <script src="{{ asset('js/confirm-delete.js') }}"></script>
+    {% endblock %}
+
+{% endblock %}
+
+{% block stylesheets %}
+<style> </style>
+{% endblock %}
+

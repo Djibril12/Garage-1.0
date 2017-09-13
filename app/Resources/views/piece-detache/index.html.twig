@@ -9,8 +9,9 @@
             <div class="col-sm-4">
                 <img src="{{ asset('img/piece-detache/' ~ pieceDetachee.image ~ '') }}" alt="Paris" width="150" height="100">
                 <p><strong>{{ pieceDetachee.prix }}</strong></p>
-                <button class="btn btn-primary" >{{ 'ajouter' | capitalize }}</button>
-               
+                <a href="{{ path('app.panier.add', { id: pieceDetachee.id }) }}"  class="btn btn-primary"> Ajouter</a>
+
+
             </div>
             {% endfor %}
         </div>

@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Panier </h1>
+    {{ dump(produits) }}
+    {% if( produits | length != 0 ) %}
+        <form action="" method="post" >
+            <table class="table table-inverse">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                       {#  <th>Nom</th>  #}
+                        <th>Quantité</th>
+                        <th>Prix</th>
+                        <th>Total</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    {% for produit in  produits %} 
+                        <tr>
+                            <td><img src="{{ asset('img/spare-part/' ~ produit.image ~ '') }}" style="height:50px;width:50px;" alt="{{produit.id}}"></td>
+                           {#  <td>{{ produit.name | capitalize }}</td>  #}
+                            <td><input type="number" onchange="calculPrix()" value="1" min="1" max="10" name="qte{{produit.id}}" /></td>
+                            <td>{{ produit.prix }}</td>
+                            <td>{{ produit.prix }}</td>
+                            <td><a href="{{ url('app.panier.delete', {'id': produit.id }) }}" class="btn btn-danger btn-xs">Supprimer</a></td>
+                         </tr>
+
+                     {% endfor %}      
+                </tbody>
+            </table>
+            <div class="pull-right">
+                <p>Montant à payer : </p>
+            </div>
+            <button type="submit" class="btn btn-primary">Valider Commande</button>
+        </form>
+    {% else %}
+        <p>
+                Votre panier est vide
+        </p>
+    {% endif %}
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/calcul.js') }}"></script>
+{% endblock %}

@@ -39,6 +39,17 @@ monolog:
 
 #swiftmailer:
 #    delivery_addresses: ['me@example.com']
+swiftmailer:
+    delivery_addresses: [ '58e423bcd4-82037f@inbox.mailtrap.io' ]
+    spool:     { type: memory }
+    transport: smtp
+    host:      smtp.mailtrap.io
+    username:  64fadb6003805f
+    password:  4a61c0e5d21d5a
+    auth_mode: cram-md5
+    port: 2525
+
+
 
 hautelook_alice:
     db_drivers:

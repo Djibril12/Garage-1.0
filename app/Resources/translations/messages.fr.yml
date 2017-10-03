@@ -5,7 +5,7 @@ voiture:
         modal:
             header: information détaillé de la voiture
             button_close: fermer
-    nombre: "{0} aucune voiture pour cette marque | {1} voiture de marque | [2,+Inf] voitures de marque"
+    nombre: "{0} aucune voiture pour cette marque | {1} voiture de marque %marque%| [2,+Inf] voitures de marque %marque%"
         
 homepage:
     index:

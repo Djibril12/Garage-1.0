@@ -2,10 +2,43 @@
 
 {% block body %}
 
-
-    {{ dump(users)  }}
-
     <h3><span>Espace d'administration</span></h3>
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">Recherche avancée</div>
+        <div class="panel-body">
+            <form>
+                <div class="form-group col-sm-6">
+                    <label  for="username">Email address:</label>
+                    <input type="text" class="form-control" id="username">
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="email">Email address:</label>
+                    <input type="email" class="form-control" id="email">
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="statut">Statut:</label>
+                    <input type="password" class="form-control" id="statut">
+                </div>
+
+                <div class="form-group col-sm-6">
+                    <label for="adresse">Adresse</label>
+                    <input type="text" class="form-control" id="adresse">
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="telephone">Telephone:</label>
+                    <input type="phone" class="form-control" id="telephone">
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="ville">Ville:</label>
+                    <input type="text" class="form-control" id="ville">
+                </div>
+
+                <button type="submit" class="btn btn-default">Rechercher</button>
+            </form>
+        </div>
+    </div>
+
     <table class="table table-bordered table-hover">
         <thead>
         <tr>
@@ -40,6 +73,13 @@
         </tbody>
     </table>
 
+    <ul class="pagination">
+        <li><a href="#">1</a></li>
+        <li class="active"><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+    </ul>
 
     {% block javascript %}
         <script src="{{ asset('js/confirm-delete.js') }}"></script>

@@ -153,6 +153,8 @@ class Voiture {
     {
         $this->pieceDetaches[] = $pieceDetach;
 
+        dump($this->pieceDetaches); die();
+
         return $this;
     }
 

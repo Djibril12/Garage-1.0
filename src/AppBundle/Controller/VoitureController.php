@@ -7,7 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Entity\Voiture;
 
-class Voiture1Controller extends Controller
+class VoitureController extends Controller
 {
     /**
      * @Route("/voiture/{slug}", name="app.voiture.index")
@@ -23,6 +23,7 @@ class Voiture1Controller extends Controller
         
         return $this->render('voiture/index.html.twig', [
             'voitures' => $voitures,
+            'slug' => $slug
         ]);
     }
 }

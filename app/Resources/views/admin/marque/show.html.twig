@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Marque</h1>
+
+    <table class="table table-striped">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ marque.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ marque.nom }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div>
+
+        <a href="{{ path('admin_marque_index') }}" class="btn btn-default pull-right"> Retour</a>
+
+        {{ form_start(delete_form, {'attr': {'class': 'form-horizontal'}}) }}
+            <a href="{{ path('admin_marque_edit', { 'id': marque.id }) }}" class="btn btn-info">Edit</a>
+            <input class="btn btn-danger" type="submit" value="Delete">
+        {{ form_end(delete_form) }}
+
+    </div>
+{% endblock %}

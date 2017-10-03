@@ -1,9 +1,10 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+
     <div class="row">
         {% set nombre = voitures | length %}
-        <h3>{{ 'voiture.nombre' | transchoice(nombre) | capitalize }}</h3>
+        <h3>{{ 'voiture.nombre' | transchoice(nombre, {'%marque%': slug | capitalize }) | capitalize }}</h3>
         <div class="row text-center">
             {% for voiture in voitures %}
             <div class="col-sm-4">

@@ -2,7 +2,10 @@
 
 {% block body %}
     <h1>Panier </h1>
-    {{ dump(produits) }}
+
+    {{  dump(produits) }}
+
+
     {% if( produits | length != 0 ) %}
         <form action="" method="post" >
             <table class="table table-inverse">
@@ -20,7 +23,7 @@
 
                     {% for produit in  produits %} 
                         <tr>
-                            <td><img src="{{ asset('img/spare-part/' ~ produit.image ~ '') }}" style="height:50px;width:50px;" alt="{{produit.id}}"></td>
+                            <td><img src="{{ asset('img/piece-detache/' ~ produit.image) }}" style="height:40px;width:40px;"></td>
                            {#  <td>{{ produit.name | capitalize }}</td>  #}
                             <td><input type="number" onchange="calculPrix()" value="1" min="1" max="10" name="qte{{produit.id}}" /></td>
                             <td>{{ produit.prix }}</td>

@@ -16,12 +16,23 @@ class AjaxController extends Controller
     public function getcarAction(Request $request)
     {
         
-        $car = $request->request->get('car');
+        $id = $request->request->get('car');
                
-        $carInfos = $this->getDoctrine()->getRepository(Voiture::class)->find($car);
-          $data = (array) $carInfos;      
+        $car = $this->getDoctrine()->getRepository(Voiture::class)->find($id);
+        dump($car);
+
+
+        $formatted = [
+            'id' => $car->getId(),
+            'name' => $car->getName(),
+            'image' => $car->getImage()
+        ];
+
+
+
+        //$data = (array) $carInfos;
         //dump($carInfos);
 
-         return new JsonResponse(['data' => json_encode($data)]);
+         return new JsonResponse($formatted);
     }
 }

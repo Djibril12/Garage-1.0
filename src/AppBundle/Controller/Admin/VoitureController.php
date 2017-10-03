@@ -5,7 +5,8 @@ namespace AppBundle\Controller\Admin;
 use AppBundle\Entity\Voiture;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Voiture controller.
@@ -83,6 +84,7 @@ class VoitureController extends Controller
     {
         $deleteForm = $this->createDeleteForm($voiture);
         $editForm = $this->createForm('AppBundle\Form\VoitureType', $voiture);
+        dump($editForm->get('name')->getConfig());
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {

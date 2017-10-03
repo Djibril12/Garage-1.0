@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h3>Details de la voiture N° {{ voiture.id }} </h3>
+
+    <table class="table table-striped">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ voiture.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ voiture.name }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td><img src="{{ asset('img/voiture/' ~ voiture.image ~ '') }}" style="height:50px;width:50px;" alt="{{voiture.name}}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div>
+        <a href="{{ path('voiture_index') }}" class="btn btn-default pull-right"> Retour</a>
+
+        {{ form_start(delete_form, {'attr': {'class': 'form-horizontal'}}) }}
+            <a href="{{ path('voiture_edit', { 'id': voiture.id }) }}" class="btn btn-info"> Edit</a>
+            <input class="btn btn-danger" type="submit" value="Delete">
+        {{ form_end(delete_form) }}
+
+    </div>
+{% endblock %}

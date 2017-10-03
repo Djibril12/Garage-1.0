@@ -1,26 +1,62 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{% block title %}Garage {% endblock %}</title>
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-        
         <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
-       
-        
+        <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}" />
+
+
+        <style>
+
+            .affix {
+                top:0;
+                width: 100%;
+                z-index: 9999 !important;
+            }
+
+        </style>
+
+    </head>
+    <body  data-spy="scroll" data-target=".navbar" data-offset="80">
+
+
+        <div class="container-fluid" style="background-color:#34495e;color:#fff;height:100px;">
+            <div class="h1">Garage</div>
+            <span class="h4">Vente de pieces détachées en ligne</span>
+        </div>
+
+        <div class="container-fluid">
+
+            <div class="pull-right col-sm-3">
+                <a href="{{ url('app.panier.panier') }}">
+                    <span>Mon Panier<i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i></span><span class="badge badge-info">{{ nombre_article_panier() }}</span>
+                </a>
+            </div>
+
+        </div>
+
+
+        <div>
+            {{ generate_nav() | raw }}
+            {% include 'inc/flash-message.html.twig' %}
+        </div>
+
+        <div class="container">
+            {% block body %}{% endblock %}
+        </div>
+
+        {% include 'inc/modal-detail-voiture.html.twig' %}
+
+
         <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
         <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-    </head>
-    <body class="container">
-        
-        {{ generate_nav() | raw }}
-        {% include 'inc/flash-message.html.twig' %}
 
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-        {% include 'inc/modal-detail-voiture.html.twig' %}
-        
         <script src="{{ asset('js/app.js') }}"></script>
+        {% block javascripts %}{% endblock %}
     </body>
 </html>

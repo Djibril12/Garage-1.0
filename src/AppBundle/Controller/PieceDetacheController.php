@@ -19,7 +19,7 @@ class PieceDetacheController extends Controller
        
         
         $piecesDetachees = $this->getDoctrine()->getRepository(PieceDetache::class)->getPieceParCategorie($slug);
-        dump($piecesDetachees);
+        //dump($piecesDetachees);
         //exit();
         
         // replace this example code with whatever you need

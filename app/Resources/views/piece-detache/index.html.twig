@@ -1,22 +1,18 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    
-    <div class="row">
-        <h1>Affichage des pièces détachées</h1>
+        <h3>Liste des pièces détachées</h3>
         <div class="row text-center">
             {% for pieceDetachee in piecesDetachees %}
             <div class="col-sm-4">
-                <img src="{{ asset('img/piece-detache/' ~ pieceDetachee.image ~ '') }}" alt="Paris" width="150" height="100">
-                <p><strong>{{ pieceDetachee.prix }}</strong></p>
-                <a href="{{ path('app.panier.add', { id: pieceDetachee.id }) }}"  class="btn btn-primary"> Ajouter</a>
+                <div class="thumbnail">
+                    <img src="{{ asset('img/piece-detache/' ~ pieceDetachee.image ~ '') }}" >
 
+                    <p class="card-text">{{ pieceDetachee.prix }}</p>
+                    <a href="{{ path('app.panier.add', { id: pieceDetachee.id }) }}"  class="btn btn-primary"> Ajouter</a>
 
+                </div>
             </div>
             {% endfor %}
         </div>
-    </div>
-                
 {% endblock %}
-
-

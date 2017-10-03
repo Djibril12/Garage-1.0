@@ -26,7 +26,7 @@ class PanierController extends Controller {
             }
             // suppression des valeurs doubles dans le tableau 
             $result = array_unique($idArticles);
-            dump($result);
+            //dump($result);
             //exit();
             for ($i = 0; $i < sizeof($result); $i++) {
                 // dump($result[$i]);
@@ -37,7 +37,7 @@ class PanierController extends Controller {
         } else {
             $produits = null;
         }
-        dump($produits);
+        //dump($produits);
        // exit();
         return $this->render('panier/panier.html.twig', [
                     'produits' => $produits,

@@ -33,12 +33,11 @@
     </ul>
     <ul class="nav navbar-nav navbar-right">
         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-            <button class="btn btn-default btn-lg"><span class="glyphicon glyphicon-user"></span></button>
-            <li><a class="btn btn-default btn-lg" href="#"><span class="glyphicon glyphicon-user"></span>user</a></li>
-            <li><a href="{{ url('app.security.logout') }}"><span class="glyphicon glyphicon-log-out"></span>{{ 'homepage.index.nav.signout' | trans | capitalize }}</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-user"></span> {{ app.user.username }} </a></li>
+            <li><a href="{{ url('app.security.logout') }}"><span class="glyphicon glyphicon-log-out"></span> {{ 'homepage.index.nav.signout' | trans | capitalize }}</a></li>
         {% else %}
-            <li><a href="{{ url('app.security.login') }}"><span class="glyphicon glyphicon-log-in"></span>{{ 'homepage.index.nav.signin' | trans | capitalize }}</a></li>
-            <li><a href="{{ url('app.compte.inscrire') }}"><span class="glyphicon glyphicon-user"></span>{{ 'homepage.index.nav.signup' | trans | capitalize }}</a></li>
+            <li><a href="{{ url('app.security.login') }}"><span class="glyphicon glyphicon-log-in"></span> {{ 'homepage.index.nav.signin' | trans | capitalize }}</a></li>
+            <li><a href="{{ url('app.compte.inscrire') }}"><span class="glyphicon glyphicon-user"></span> {{ 'homepage.index.nav.signup' | trans | capitalize }}</a></li>
         {% endif %}
     </ul>
   </div>

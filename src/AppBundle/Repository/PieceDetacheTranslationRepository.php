@@ -10,4 +10,12 @@ namespace AppBundle\Repository;
  */
 class PieceDetacheTranslationRepository extends \Doctrine\ORM\EntityRepository
 {
+
+    public function recuperePieceDeatacheDeLangue($langue)
+    {
+        return $this
+            ->createQueryBuilder('p')
+            ->where('c.name LIKE :pattern')
+            ->setParameter('pattern', $langue);
+    }
 }

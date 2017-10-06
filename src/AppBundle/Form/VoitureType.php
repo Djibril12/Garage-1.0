@@ -2,6 +2,8 @@
 
 namespace AppBundle\Form;
 
+use AppBundle\Entity\PieceDetacheTranslation;
+use AppBundle\Repository\PieceDetacheTranslationRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -15,6 +17,10 @@ class VoitureType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $locale = "";
+
+       dump($options);
+
         $builder
             ->add('name')
             ->add('image', FileType::class,  array('data_class' => null))
@@ -22,12 +28,15 @@ class VoitureType extends AbstractType
                 'class'            => 'AppBundle:Marque',
                 'choice_label' => 'nom',
                 'multiple'     => false,
-            ))
-            ->add('pieceDetaches', EntityType::class, array(
+            ));
+            /*->add('pieceDetaches', EntityType::class, array(
                 'class'            => 'AppBundle:PieceDetacheTranslation',
                 'choice_label' => 'nom',
                 'multiple'     => true,
-            ));
+                'query_builder' => function(PieceDetacheTranslationRepository $repository) use($pattern) {
+                    return $repository->recuperePieceDeatacheDeLangue($pattern);
+                }
+            ));*/
     }
     
     /**

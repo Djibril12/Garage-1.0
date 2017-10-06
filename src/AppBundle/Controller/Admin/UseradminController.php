@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Barry
- * Date: 03/09/2017
- * Time: 03:55
- */
+
 
 namespace AppBundle\Controller\Admin;
 
@@ -12,9 +7,13 @@ namespace AppBundle\Controller\Admin;
 
 use AppBundle\Entity\User;
 use AppBundle\Form\UserType;
+use Pagerfanta\Adapter\DoctrineORMAdapter;
+use Pagerfanta\Exception\NotValidCurrentPageException;
+use Pagerfanta\Pagerfanta;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 
 /**
@@ -25,17 +24,35 @@ class UseradminController extends Controller
 
 
     /**
-     * @Route("/users", name="app.admin.user.index")
+     * @Route("/users", name="app.admin.user.index")*
     */
     public function indexAction(Request $request)
     {
-        $users = $this->getDoctrine()->getRepository(User::class)->findAll();
-
-        //exit(dump($users));
 
 
+        $pager = $this->getDoctrine()
+            ->getRepository('AppBundle:User')
+            ->findAllQueryBuilder('asc', 1, 0);
+
+        $page = $request->query->get('page',1);
+        //$pager->
+        $pager->haveToPaginate(); // Retourne true si le nombre de résultats est supérieur au nombre maximum d'éléments par page
+
+        $pager->getNbPages(); // Nombre total de pages
+
+        $pager->hasPreviousPage(); // Retourne true si la page courante possède une page précédente
+
+        $pager->hasNextPage();
+
+        $pager->setCurrentPage($page);
+
+
+
+
+        //exit(dump($pager));
         return $this->render('admin/user/index.html.twig',[
-            'users' => $users,
+            'users' => $pager,
+            'my_pager' => $pager,
             ]);
     }
 

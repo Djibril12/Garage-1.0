@@ -41,5 +41,20 @@ class UserRepository extends AbstractRepository
 
         return $this->paginate($qb, $limit, $offset);
     }
+ 
+    
+    public function getUserByUsername($motArechercher) {
+        
+        //echo 'test';
+        
+        $results = $this
+                ->createQueryBuilder('user')
+                ->where("user.username LIKE '%". $motArechercher ."'")
+                ->getQuery()
+                ->getResult();
+                
+           return $results;
+               
+    }
     
 }

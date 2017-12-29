@@ -13,7 +13,10 @@
                   <img src="{{ asset('img/voiture/' ~ voiture.image ~ '') }}" alt="Paris" width="300" height="200">
                   <p><strong>{{ voiture.name }}</strong></p>
                   
-                  <button type="button" class="btn btn-info more-info" data-toggle="modal" data-car="{{ voiture.id }}" data-target="#myModal">{{ 'voiture.index.button_detail' | trans | capitalize }}</button>
+                  <button type="button" class="btn btn-info more-info" data-toggle="modal"
+                    data-car="{{ voiture.id }}" data-target="#myModal">
+                    {{ 'voiture.index.button_detail' | trans | capitalize }}
+                  </button>
                 </div>
                 
             </div>

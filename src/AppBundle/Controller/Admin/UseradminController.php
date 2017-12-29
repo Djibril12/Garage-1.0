@@ -21,8 +21,6 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
  */
 class UseradminController extends Controller
 {
-
-
     /**
      * @Route("/users", name="app.admin.user.index")*
     */
@@ -45,10 +43,7 @@ class UseradminController extends Controller
         $pager->hasNextPage();
 
         $pager->setCurrentPage($page);
-
-
-
-
+        
         //exit(dump($pager));
         return $this->render('admin/user/index.html.twig',[
             'users' => $pager,

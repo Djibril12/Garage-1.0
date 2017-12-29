@@ -1,37 +1,36 @@
 {% extends 'base.html.twig' %}
-
+{% block title %}{{ parent() }} - Administration {% endblock %}
 {% block body %}
 
-    <h3><span>Espace d'administration</span></h3>
+    <h3>Espace d'administration</h3>
 
     <div class="panel panel-primary">
         <div class="panel-heading">Recherche avancée</div>
         <div class="panel-body">
             <form>
                 <div class="form-group col-sm-6">
-                    <label  for="username">Email address:</label>
-                    <input type="text" class="form-control" id="username">
-                </div>
-                <div class="form-group col-sm-6">
-                    <label for="email">Email address:</label>
-                    <input type="email" class="form-control" id="email">
-                </div>
-                <div class="form-group col-sm-6">
-                    <label for="statut">Statut:</label>
-                    <input type="password" class="form-control" id="statut">
+                    <label  for="usernameSearch">Username :</label>
+                    <input type="text" class="form-control" id="usernameSearch">
+                    <div id="description"></div>
                 </div>
 
                 <div class="form-group col-sm-6">
-                    <label for="adresse">Adresse</label>
-                    <input type="text" class="form-control" id="adresse">
+                    <label for="emailSearch">Email :</label>
+                    <input type="email" class="form-control" id="emailSearch">
                 </div>
+
                 <div class="form-group col-sm-6">
-                    <label for="telephone">Telephone:</label>
-                    <input type="phone" class="form-control" id="telephone">
+                    <label for="statuSearch">Statut :</label>
+                    <select class="form-control" id="statuSearch">
+                        <option selected>-</option>
+                        <option>Oui</option>
+                        <option>Non</option>
+                    </select>
                 </div>
+
                 <div class="form-group col-sm-6">
-                    <label for="ville">Ville:</label>
-                    <input type="text" class="form-control" id="ville">
+                    <label for="villeSearch">Ville:</label>
+                    <input type="text" class="form-control" id="villeSearch">
                 </div>
 
                 <button type="submit" class="btn btn-default">Rechercher</button>
@@ -78,14 +77,13 @@
     <div class="pagerfanta">
         {{ pagerfanta(my_pager,  'twitter_bootstrap3') }}
     </div>
-
-    {% block javascript %}
-        <script src="{{ asset('js/confirm-delete.js') }}"></script>
-    {% endblock %}
-
+    
 {% endblock %}
 
-{% block stylesheets %}
-<style> </style>
+{% block javascript %}
+    {{ parent() }}
+    <script src="{{ asset('js/confirm-delete.js') }}"></script>
+    <script src="{{ asset('js/autocompletion-search.js') }}"></script>
 {% endblock %}
+
 

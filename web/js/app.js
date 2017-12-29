@@ -4,9 +4,10 @@ $(document).ready(function(){
         //alert('chargement jQuery');
         var dataCar = $(e.target).data('car'); 
         var data = 'car='+ dataCar; // donneé à envoyer sous forme d'URL
-        alert(data);
+        //alert(data);
         $.ajax({
             data: data,
+            async: false,
             dataType: 'JSON',
             method: 'POST',
             url: '/Garage-1.0/web/app_dev.php/get-car',
@@ -75,7 +76,7 @@ $(document).ready(function(){
 
             },
             error: function(err){
-                console.log("error"+JSON.stringify(err));
+                console.log("error " + JSON.stringify(err));
             }
         });
 

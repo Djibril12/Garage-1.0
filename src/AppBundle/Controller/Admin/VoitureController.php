@@ -47,7 +47,7 @@ class VoitureController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
 
-            exit(dump($voiture));
+            dump($voiture);
 
             $em->persist($voiture);
             $em->flush();

@@ -19,7 +19,7 @@ class VoitureType extends AbstractType
     {
         $locale = "";
 
-       dump($options);
+       //dump($options);
 
         $builder
             ->add('name')

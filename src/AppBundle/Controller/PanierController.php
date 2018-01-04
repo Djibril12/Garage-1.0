@@ -21,8 +21,9 @@ class PanierController extends Controller {
 
         if (!empty($panier)) {
             foreach ($panier as $key => $article) {
-                if (array_key_exists('id', $article))
+                if (array_key_exists('id', $article)){
                     $idArticles[] = $article['id'];
+                }
             }
             // suppression des valeurs doubles dans le tableau 
             $result = array_unique($idArticles);

@@ -1,40 +1,63 @@
-$(document).ready(function(){
-   var app = {
-       dataUser: []
-   };
-    
-    function init(){
+$(document).ready(function () {
+  
+    var dataUser = { 
+       username: [],
+       email: [],
+       city: []
+    };          
+      
+    function init() {
         $.ajax({
-           url : '/Garage-1.0/web/app_dev.php/autocompletion', // on appelle le script JSON
-           dataType : 'json', // on spécifie bien que le type de données est en JSON
-           data : {
-               search : $('#usernameSearch').val() // on donne la chaîne de caractère tapée dans le champ de recherche
-           },
-           success : function(donnee){
-               //alert(donnee);
-               for(var i =0; i<donnee.length; i++)
-               {
-                   var c = [];
-                   c['value'] = donnee[i].username;
-                   c['label'] = donnee[i].username;
-                   c['desc'] = donnee[i].username;
-                   
-                   app.dataUser.push(c); 
-               }
-             //console.log(app.dataUser);
+            url: '/Garage-1.0/web/app_dev.php/autocompletion', // on appelle le script JSON
+            dataType: 'json', // on spécifie bien que le type de données est en JSON      
+            success: function (donnee) {
+                for (var i = 0; i < donnee.length; i++)
+                {
+                    
+                    dataUser.username.push({
+                                'value': donnee[i].username,
+                                'label': donnee[i].username,
+                                'desc': donnee[i].username
+                            });
+                    dataUser.email.push({
+                                'value': donnee[i].email,
+                                'label': donnee[i].email,
+                                'desc': donnee[i].email
+                            });
+                    dataUser.city.push({
+                                'value': donnee[i].city,
+                                'label': donnee[i].city,
+                                'desc': donnee[i].city
+                            });
+                    
+                }
+                console.log(dataUser);
             }
-       });
+        });
     }
-    
+
     init();
-   
+
     $('#usernameSearch').autocomplete({
-        source : app.dataUser,
-        select : function(event, ui){
-             
-             $('#description').val(ui.item.value); // lance une alerte indiquant la valeur de la proposition
-        }   
+        source: dataUser.username,
+        select: function (event, ui) {
+            $('#descUsername').val(ui.item.value); // lance une alerte indiquant la valeur de la proposition
+        }
+    });
+
+    $('#emailSearch').autocomplete({
+        source: dataUser.email,
+        select: function (event, ui) {
+            $('#descEmail').val(ui.item.value); // lance une alerte indiquant la valeur de la proposition
+        }
+    });
+    
+    $('#citySearch').autocomplete({
+        source: dataUser.city,
+        select: function (event, ui) {
+            $('#descCity').val(ui.item.value); // lance une alerte indiquant la valeur de la proposition
+        }
     });
 });
-    
+
 

@@ -16,9 +16,7 @@ class HomepageController extends Controller
      */
     public function indexAction(Request $request)
     {
-      
-        
-        
+       
         return $this->render('admin/index.html.twig');
     }
 }

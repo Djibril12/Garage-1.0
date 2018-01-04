@@ -26,11 +26,27 @@ class UseradminController extends Controller
     */
     public function indexAction(Request $request)
     {
-
-
+        $dataSearch = array();
+        if($request->getMethod() == 'POST'){
+            
+            $dataSearch = array(
+                'username' => $request->request->get('username'),
+                'email' => $request->request->get('email'),
+                'status' => $request->request->get('status'),
+                'city' => $request->request->get('city'),
+            );   
+            
+            
+        }
+        
+        
+        dump($dataSearch);
+       
+        //echo gettype($dataSearch);
+        
         $pager = $this->getDoctrine()
             ->getRepository('AppBundle:User')
-            ->findAllQueryBuilder('asc', 1, 0);
+            ->findAllQueryBuilder($dataSearch,'asc', 1, 0);
 
         $page = $request->query->get('page',1);
         //$pager->

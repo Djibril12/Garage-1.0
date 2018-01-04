@@ -44,10 +44,10 @@ class AjaxController extends Controller
     public function autocompletionAction(Request $request)
     {
 
-        $motArechercher = $request->query->get('search');
+        //$motArechercher = $request->query->get('search');
         //dump($request->query->get('search'));
         
-        $users = $this->getDoctrine()->getRepository(User::class)->getUserByUsername($motArechercher);
+        $users = $this->getDoctrine()->getRepository(User::class)->getUserByUsername();
         //dump($user);
         //die();
         $usersResultsJson = [];
@@ -56,7 +56,8 @@ class AjaxController extends Controller
             $userformattedJson = [
                 //'id' => $user->getId(),
                 'username' => $user->getUsername(),
-                //'email' => $user->getEmail(),
+                'email' => $user->getEmail(),
+                'city' => $user->getCity()
             ];
             
             

@@ -7,21 +7,22 @@
     <div class="panel panel-primary">
         <div class="panel-heading">Recherche avancée</div>
         <div class="panel-body">
-            <form>
+            <form action="{{ path('app.admin.user.index') }}" method="post">
                 <div class="form-group col-sm-6">
                     <label  for="usernameSearch">Username :</label>
-                    <input type="text" class="form-control" id="usernameSearch">
-                    <div id="description"></div>
+                    <input type="text" class="form-control" id="usernameSearch" name="username">
+                    <div id="descUsername"></div>
                 </div>
 
                 <div class="form-group col-sm-6">
                     <label for="emailSearch">Email :</label>
-                    <input type="email" class="form-control" id="emailSearch">
+                    <input type="email" class="form-control" id="emailSearch" name="email">
+                    <div id="descEmail"></div>
                 </div>
 
                 <div class="form-group col-sm-6">
                     <label for="statuSearch">Statut :</label>
-                    <select class="form-control" id="statuSearch">
+                    <select class="form-control" id="statuSearch" name="status">
                         <option selected>-</option>
                         <option>Oui</option>
                         <option>Non</option>
@@ -29,8 +30,9 @@
                 </div>
 
                 <div class="form-group col-sm-6">
-                    <label for="villeSearch">Ville:</label>
-                    <input type="text" class="form-control" id="villeSearch">
+                    <label for="citySearch">Ville:</label>
+                    <input type="text" class="form-control" id="citySearch" name="city">
+                    <div id="descCity"></div>
                 </div>
 
                 <button type="submit" class="btn btn-default">Rechercher</button>
